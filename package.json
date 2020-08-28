@@ -1,0 +1,59 @@
+{
+  "name": "gsp-api-template",
+  "version": "1.0.0",
+  "description": "Template para APIs em NodeJS da Zoop",
+  "main": "lambda.js",
+  "scripts": {
+    "build": "babel src lambda.js --extensions \".js\" -d dist --copy-files --ignore '**/__test__'",
+    "start": "nodemon --exec babel-node local.js --ignore '**/__test__'",
+    "test": "jest",
+    "test:watch": "jest --watchAll",
+    "test:coverage": "jest --watchAll",
+    "lint": "eslint",
+    "update": "claudia update --profile zoop",
+    "zip": "claudia pack",
+    "generate": "claudia generate-serverless-express-proxy --express-module ./src/app",
+    "create": "claudia create --handler dist/lambda.handler --deploy-proxy-api --region us-east-1 --profile zoop"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alex-amaral/gsp-api-template.git"
+  },
+  "author": "Alexsander Rocha",
+  "keywords": [
+    "lambda",
+    "node",
+    "express",
+    "s3"
+  ],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/alex-amaral/gsp-api-template/issues"
+  },
+  "homepage": "https://github.com/alex-amaral/gsp-api-template#readme",
+  "dependencies": {
+    "aws-sdk": "^2.741.0",
+    "aws-serverless-express": "^3.3.8",
+    "cors": "^2.8.5",
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.10.5",
+    "@babel/core": "^7.11.4",
+    "@babel/node": "^7.10.5",
+    "@babel/plugin-proposal-class-properties": "^7.10.4",
+    "@babel/plugin-transform-modules-commonjs": "^7.10.4",
+    "@babel/preset-env": "^7.11.0",
+    "babel-jest": "^26.3.0",
+    "claudia": "^5.12.0",
+    "eslint": "^7.7.0",
+    "eslint-config-standard": "^14.1.1",
+    "eslint-plugin-import": "^2.22.0",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-standard": "^4.0.1",
+    "jest": "^26.4.2",
+    "nodemon": "^2.0.4",
+    "supertest": "^4.0.2"
+  }
+}
